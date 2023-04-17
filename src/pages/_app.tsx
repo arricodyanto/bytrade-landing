@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '@/styles/generated.css'
 import { CssBaseline, ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
