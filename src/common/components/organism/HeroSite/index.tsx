@@ -27,7 +27,7 @@ export default function HeroSite() {
                 </Box>
             </Grid>
             <Grid item xs={12} md={6} className='grid'>
-                <Box className='xs:w-3/4 lg:w-[55%] xl:w-[73%] justify-self-center' display={{ xs: 'none', md: 'block' }}>
+                <Box className='xs:w-3/4 lg:w-[55%] xl:w-[73%] justify-self-center md:mt-[4rem] lg:mt-[8rem]' display={{ xs: 'none', md: 'block' }}>
                     <Image src='/Hero.png' width={100} height={100} alt='Bytrade Hero' layout='responsive' className='xs:-translate-y-6 lg:-translate-y-[3.6rem]'/>
                 </Box>
             </Grid>
