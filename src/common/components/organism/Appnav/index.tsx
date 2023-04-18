@@ -78,10 +78,10 @@ export default function Appnav() {
                                     <List className='absolute bottom-8'>
                                         <ListItem className='w-[240px] justify-center py-4'>
                                             <Stack direction='row' spacing={1}>
-                                                <Link href='/'>
+                                                <Link href='/register'>
                                                     <ButtonContained label='Register' />
                                                 </Link>
-                                                <Link href='/'>
+                                                <Link href='/sign-in'>
                                                     <ButtonOutlined label='Login' />
                                                 </Link>
                                             </Stack>
@@ -111,8 +111,12 @@ export default function Appnav() {
                                     </>
                                 )
                             })}
-                            <ButtonContained label='Register' />
-                            <ButtonOutlined label='Login' />
+                            <Link href='/register'>
+                                <ButtonContained label='Register' />
+                            </Link>
+                            <Link href='/sign-in'>
+                                <ButtonOutlined label='Login' />
+                            </Link>
                         </Stack>
                     </Grid>
                 </Grid>

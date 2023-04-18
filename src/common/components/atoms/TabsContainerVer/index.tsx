@@ -12,9 +12,6 @@ const customTheme = createTheme({
           display: 'flex',
           flexDirection: 'column',
           // justifyContent: 'flex-start',
-          '& .Mui-selected': {
-            color: '#E2E8F1'
-          }
         }),
         flexContainerVertical: ({ theme }) => theme.unstable_sx({
           display: 'flex',

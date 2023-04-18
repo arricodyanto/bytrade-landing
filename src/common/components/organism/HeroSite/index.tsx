@@ -16,7 +16,7 @@ export default function HeroSite() {
                         A Word-Class Exchange Platform that empowered to catch your best opportunities
                     </Typography>
                     <Stack direction='row' spacing={3} alignItems='cemter'>
-                    <Button variant='contained' size='large' className='bg-primary font-bold text-[16px] rounded-[5px] py-3 max-w-[55%]'>Get Started →</Button>
+                    <Button variant='contained' size='large' className='font-bold text-[16px] rounded-[5px] py-3 max-w-[55%]'>Get Started →</Button>
                     <Link href='#'>
                         <Image src='/appstore.png' width={35} height={35} alt='Get on Apple Store' className='hover:brightness-75 transition' />
                     </Link>
