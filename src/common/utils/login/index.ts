@@ -23,7 +23,4 @@ export const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     
     // save credential to cookie
     Cookies.set('loginInfo', username, { expires: 1 });
-
-    // redirect to another page
-    window.location.href = '/';
 }

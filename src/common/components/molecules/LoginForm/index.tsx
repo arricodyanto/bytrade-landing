@@ -10,9 +10,8 @@ export default function LoginForm() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUsername(e.target.value)
     }
-    const router = useRouter()
   return (
-    <Box component='form' onSubmit={handleSubmit}>
+    <Box component='form' action='/auth' method='post'>
         <TextfieldLabel label='User Name' name='username' placeholder='User Name' value={username} onChange={handleChange} />
         <Box className='mt-8'>
             <ButtonContained type='submit' label='Login' fullWidth size='large' />
