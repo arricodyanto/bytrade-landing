@@ -1,6 +1,6 @@
 import BackgorundGradient from '@/common/components/atoms/BackgroundGradient'
 import ContainerPage from '@/common/components/atoms/ContainerPage'
-import TextfieldLabel from '@/common/components/atoms/TextfieldLabel'
+import LoginForm from '@/common/components/molecules/LoginForm'
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -31,12 +31,14 @@ export default function SignIn() {
                                 <Typography variant='h6' className='font-bold text-[24px]'>Hello!</Typography>
                                 <Typography variant='body1' className=''>Welcome to Bytrade! Please Log in to your account to start earning!</Typography>
                             </Stack>
-                            <Box component='form' action='/' method='post'>
-                                <TextfieldLabel label='Email Adress' name='email' placeholder='usermail@yourmail.com' />
-                            </Box>
+                            <LoginForm />
+                        </Grid>
+                        <Grid item md={6} sx={{ display: { xs: 'none', md: 'grid' }, position: 'relative' }}>
+                            <Image src='/login-hero.jpg' alt='Login Hero' layout='fill' objectFit='cover' className='rounded-r-md brightness-75' />
                         </Grid>
                     </Grid>
                 </Box>
+                <Typography variant='body1' className='text-center mt-4'>Dont have a account? <Link href='/register' className='underline underline-offset-4 decoration-1 hover:no-underline hover:text-primary transition'>Register</Link></Typography>
             </ContainerPage>
         </Stack>
     </>

@@ -4,8 +4,12 @@ import Link from 'next/link';
 import ContainerPage from '../../atoms/ContainerPage';
 import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
+import Cookies from 'js-cookie';
 import ButtonContained from '../../atoms/ButtonContained';
 import ButtonOutlined from '../../atoms/ButtonOutlined';
+import { handleLogOut } from '@/common/utils/logout';
+import { useRouter } from 'next/router';
+// import { getUserInfo } from '@/common/utils/login';
 
 // Changes on Scroll
 function ChangesOnScroll(props: any) {
@@ -39,7 +43,31 @@ export default function Appnav() {
         return;
         }
         setDrawer({ ...drawer, [anchor]: open });
-    };
+    }
+    const getUserInfo = Cookies.get('loginInfo');
+    console.log(getUserInfo)
+    const [login, setLogin] = React.useState('Login')
+    const [register, setRegister] = React.useState<string | undefined>('Register')
+    const [variant, setVariant] = React.useState<any>('contained')
+    const router = useRouter()
+    React.useEffect(() => {
+        getUserInfo === undefined ? () => {
+            setLogin('Login')
+            setRegister('Register')
+            setVariant('contained')
+        } : () => {
+            setLogin('Logout')
+            setRegister(getUserInfo)
+            setVariant('text')
+        }
+    })
+
+    const handleLogin = () => {
+        getUserInfo === undefined ? window.location.href = '/sign-in' : handleLogOut
+    }
+    const handleRegister = () => {
+        getUserInfo === undefined ? router.push('/register') : undefined
+    }
   return (
     <ChangesOnScroll>
         <AppBar sx={{ backgroundColor: trigger ? "#0F172A" : 'transparent', boxShadow: trigger ? 2 : 0, borderBottomColor: '#363636', borderBottomWidth: '1px', }} className='transition-all duration-700 ease-in-out'>
@@ -77,14 +105,27 @@ export default function Appnav() {
                                     </List>
                                     <List className='absolute bottom-8'>
                                         <ListItem className='w-[240px] justify-center py-4'>
-                                            <Stack direction='row' spacing={1}>
-                                                <Link href='/register'>
-                                                    <ButtonContained label='Register' />
-                                                </Link>
-                                                <Link href='/sign-in'>
-                                                    <ButtonOutlined label='Login' />
-                                                </Link>
-                                            </Stack>
+                                            { getUserInfo === undefined ? 
+                                                <>
+                                                    <Stack direction='row' spacing={1}>
+                                                        <Link href='/register'>
+                                                            <ButtonContained label='Register' />
+                                                        </Link>
+                                                        <Link href='/sign-in'>
+                                                            <ButtonOutlined label='Login' />
+                                                        </Link>
+                                                    </Stack>
+                                                </>
+                                             : 
+                                                <>
+                                                    <Stack direction='row' spacing={1}>
+                                                        <Link href='/register'>
+                                                            <ButtonContained label='Register' />
+                                                        </Link>
+                                                        <ButtonOutlined label='Logout' onClick={handleLogOut}/>
+                                                    </Stack>
+                                                </>
+                                            }
                                         </ListItem>
                                     </List>
                                 </Box>
@@ -111,12 +152,19 @@ export default function Appnav() {
                                     </>
                                 )
                             })}
-                            <Link href='/register'>
-                                <ButtonContained label='Register' />
-                            </Link>
-                            <Link href='/sign-in'>
-                                <ButtonOutlined label='Login' />
-                            </Link>
+                            {/* { getUserInfo === undefined ?
+                                <> 
+                                    <Link href='/sign-in'>
+                                        <ButtonOutlined label='Login' />
+                                    </Link>
+                                </>
+                            :
+                                <>
+                                    <ButtonOutlined label='Logout' onClick={handleLogOut} />
+                                </>
+                            } */}
+                            <ButtonContained variant={variant} label={register} onClick={handleRegister} />
+                            <ButtonOutlined label={login} onClick={handleLogin} />
                         </Stack>
                     </Grid>
                 </Grid>
