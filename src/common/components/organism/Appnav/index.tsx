@@ -46,9 +46,9 @@ export default function Appnav() {
     }
     const getUserInfo = Cookies.get('loginInfo');
     console.log(getUserInfo)
-    const [login, setLogin] = React.useState('Login')
-    const [register, setRegister] = React.useState<string | undefined>('Register')
-    const [variant, setVariant] = React.useState<any>('contained')
+    const [login, setLogin] = React.useState('')
+    const [register, setRegister] = React.useState<string | undefined>()
+    const [variant, setVariant] = React.useState<any>()
     const router = useRouter()
     React.useEffect(() => {
         getUserInfo === undefined ? () => {
@@ -63,7 +63,7 @@ export default function Appnav() {
     })
 
     const handleLogin = () => {
-        getUserInfo === undefined ? window.location.href = '/sign-in' : handleLogOut
+        getUserInfo === undefined ? router.push('/sign-in') : getUserInfo !== undefined ? router.push('/logout') : undefined
     }
     const handleRegister = () => {
         getUserInfo === undefined ? router.push('/register') : undefined
@@ -122,7 +122,9 @@ export default function Appnav() {
                                                         <Link href='/register'>
                                                             <ButtonContained label='Register' />
                                                         </Link>
-                                                        <ButtonOutlined label='Logout' onClick={handleLogOut}/>
+                                                        <Link href='/logout'>
+                                                            <ButtonOutlined label='Logout' />
+                                                        </Link>
                                                     </Stack>
                                                 </>
                                             }
