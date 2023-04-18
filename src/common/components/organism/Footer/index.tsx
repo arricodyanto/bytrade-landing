@@ -23,7 +23,9 @@ export default function Footer() {
                     <Typography variant='h5' className='font-bold mb-2'>
                         Start earning today
                     </Typography>
-                    <ButtonContained label='Register Now' size='large' fullWidth className='bg-primary capitalize text-[16px] rounded-[4px] font-bold' />
+                    <Link href='/register'>
+                        <ButtonContained label='Register Now' size='large' fullWidth className='py-3 capitalize text-[16px] rounded-[4px] font-bold' />
+                    </Link>
                 </Grid>
                 <Grid item xs={12} md={6} lg={3} className='xs:text-start lg:text-end'>
                     <Typography variant='h5' className='font-bold mb-2'>

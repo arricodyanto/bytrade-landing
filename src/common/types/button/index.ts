@@ -1,5 +1,5 @@
 export type TButtonContainedProps = {
-    label:string
+    label:string | undefined
 }
 
 export type TButtonOutlinedProps = {
