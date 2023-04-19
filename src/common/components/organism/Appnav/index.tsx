@@ -8,8 +8,7 @@ import Cookies from 'js-cookie';
 import ButtonContained from '../../atoms/ButtonContained';
 import ButtonOutlined from '../../atoms/ButtonOutlined';
 import { handleLogOut } from '@/common/utils/logout';
-import { useRouter } from 'next/router';
-// import { getUserInfo } from '@/common/utils/login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // Changes on Scroll
 function ChangesOnScroll(props: any) {
@@ -42,32 +41,9 @@ export default function Appnav() {
         ) {
         return;
         }
-        setDrawer({ ...drawer, [anchor]: open });
+        setDrawer({ ...drawer, [anchor]: open })
     }
-    const getUserInfo = Cookies.get('loginInfo');
-    console.log(getUserInfo)
-    const [login, setLogin] = React.useState('')
-    const [register, setRegister] = React.useState<string | undefined>()
-    const [variant, setVariant] = React.useState<any>()
-    const router = useRouter()
-    React.useEffect(() => {
-        getUserInfo === undefined ? () => {
-            setLogin('Login')
-            setRegister('Register')
-            setVariant('contained')
-        } : () => {
-            setLogin('Logout')
-            setRegister(getUserInfo)
-            setVariant('text')
-        }
-    })
-
-    const handleLogin = () => {
-        getUserInfo === undefined ? router.push('/sign-in') : getUserInfo !== undefined ? router.push('/logout') : undefined
-    }
-    const handleRegister = () => {
-        getUserInfo === undefined ? router.push('/register') : undefined
-    }
+    const getUserInfo = Cookies.get('loginInfo')
   return (
     <ChangesOnScroll>
         <AppBar sx={{ backgroundColor: trigger ? "#0F172A" : 'transparent', boxShadow: trigger ? 2 : 0, borderBottomColor: '#363636', borderBottomWidth: '1px', }} className='transition-all duration-700 ease-in-out'>
@@ -120,10 +96,10 @@ export default function Appnav() {
                                                 <>
                                                     <Stack direction='row' spacing={1}>
                                                         <Link href='/register'>
-                                                            <ButtonContained label='Register' />
+                                                            <ButtonContained label={getUserInfo} variant='text' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
                                                         </Link>
-                                                        <Link href='/logout'>
-                                                            <ButtonOutlined label='Logout' />
+                                                        <Link href='/'>
+                                                            <ButtonOutlined label='Logout' onClick={handleLogOut} />
                                                         </Link>
                                                     </Stack>
                                                 </>
@@ -154,19 +130,25 @@ export default function Appnav() {
                                     </>
                                 )
                             })}
-                            {/* { getUserInfo === undefined ?
-                                <> 
+                            { getUserInfo === undefined ? 
+                                <>
+                                    <Link href='/register'>
+                                        <ButtonContained label='Register' />
+                                    </Link>
                                     <Link href='/sign-in'>
                                         <ButtonOutlined label='Login' />
                                     </Link>
                                 </>
-                            :
+                                : 
                                 <>
-                                    <ButtonOutlined label='Logout' onClick={handleLogOut} />
+                                    <Link href='#' className='align-middle'>
+                                        <ButtonContained label={getUserInfo} variant='text' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
+                                    </Link>
+                                    <Link href='/'>
+                                        <ButtonOutlined label='Logout' onClick={handleLogOut} />
+                                    </Link>
                                 </>
-                            } */}
-                            <ButtonContained variant={variant} label={register} onClick={handleRegister} />
-                            <ButtonOutlined label={login} onClick={handleLogin} />
+                            }
                         </Stack>
                     </Grid>
                 </Grid>

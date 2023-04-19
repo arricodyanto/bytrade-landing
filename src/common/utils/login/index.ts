@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-export const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+export function handleSubmit(e:React.FormEvent<HTMLFormElement>) {
     // prevent browser to reload
     e.preventDefault() 
 
@@ -23,4 +23,7 @@ export const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     
     // save credential to cookie
     Cookies.set('loginInfo', username, { expires: 1 });
+
+    // redirect to home page
+    window.location.href = '/';
 }
