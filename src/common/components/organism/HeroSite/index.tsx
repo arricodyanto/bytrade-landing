@@ -2,8 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Box, Button, Grid, Stack, Typography } from '@mui/material'
+import Cookies from 'js-cookie'
 
 export default function HeroSite() {
+    const getUserInfo = Cookies.get('loginInfo')
   return (
     <Box component='section' id='hero'>
         <Grid container spacing={1} marginTop={10}>
@@ -16,7 +18,15 @@ export default function HeroSite() {
                         A Word-Class Exchange Platform that empowered to catch your best opportunities
                     </Typography>
                     <Stack direction='row' spacing={3} alignItems='cemter'>
-                    <Button variant='contained' size='large' className='font-bold text-[16px] rounded-[5px] py-3 max-w-[55%]'>Get Started →</Button>
+                    { getUserInfo === undefined ? 
+                        <Link href='/register'>
+                            <Button variant='contained' size='large' className='font-bold text-[16px] rounded-[5px] py-3'>Get Started →</Button>
+                        </Link>
+                        :    
+                        <Link href='/#top-coins'>
+                            <Button variant='contained' size='large' className='font-bold text-[16px] rounded-[5px] py-3'>Get Started →</Button>
+                        </Link>
+                    }
                     <Link href='#'>
                         <Image src='/appstore.png' width={35} height={35} alt='Get on Apple Store' className='hover:brightness-75 transition' />
                     </Link>

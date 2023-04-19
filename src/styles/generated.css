@@ -594,6 +594,14 @@ video {
   margin-bottom: 1.5rem !important;
 }
 
+.mt-4 {
+  margin-top: 1rem !important;
+}
+
+.mt-8 {
+  margin-top: 2rem !important;
+}
+
 .line-clamp-1 {
   overflow: hidden !important;
   display: -webkit-box !important;
@@ -744,6 +752,11 @@ video {
 
 .rounded-none {
   border-radius: 0px !important;
+}
+
+.rounded-r-md {
+  border-top-right-radius: 0.375rem !important;
+  border-bottom-right-radius: 0.375rem !important;
 }
 
 .border {
@@ -906,6 +919,18 @@ video {
   color: rgb(148 163 184 / var(--tw-text-opacity)) !important;
 }
 
+.underline {
+  text-decoration-line: underline !important;
+}
+
+.decoration-1 {
+  text-decoration-thickness: 1px !important;
+}
+
+.underline-offset-4 {
+  text-underline-offset: 4px !important;
+}
+
 .underline-offset-8 {
   text-underline-offset: 8px !important;
 }
@@ -922,6 +947,11 @@ video {
 
 .blur {
   --tw-blur: blur(8px) !important;
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+}
+
+.brightness-75 {
+  --tw-brightness: brightness(.75) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
 
@@ -993,6 +1023,10 @@ body {
 .hover\:text-primary:hover {
   --tw-text-opacity: 1 !important;
   color: rgb(113 97 239 / var(--tw-text-opacity)) !important;
+}
+
+.hover\:no-underline:hover {
+  text-decoration-line: none !important;
 }
 
 .hover\:brightness-110:hover {

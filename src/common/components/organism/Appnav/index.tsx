@@ -4,8 +4,11 @@ import Link from 'next/link';
 import ContainerPage from '../../atoms/ContainerPage';
 import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
+import Cookies from 'js-cookie';
 import ButtonContained from '../../atoms/ButtonContained';
 import ButtonOutlined from '../../atoms/ButtonOutlined';
+import { handleLogOut } from '@/common/utils/logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // Changes on Scroll
 function ChangesOnScroll(props: any) {
@@ -38,8 +41,9 @@ export default function Appnav() {
         ) {
         return;
         }
-        setDrawer({ ...drawer, [anchor]: open });
-    };
+        setDrawer({ ...drawer, [anchor]: open })
+    }
+    const getUserInfo = Cookies.get('loginInfo')
   return (
     <ChangesOnScroll>
         <AppBar sx={{ backgroundColor: trigger ? "#0F172A" : 'transparent', boxShadow: trigger ? 2 : 0, borderBottomColor: '#363636', borderBottomWidth: '1px', }} className='transition-all duration-700 ease-in-out'>
@@ -77,14 +81,29 @@ export default function Appnav() {
                                     </List>
                                     <List className='absolute bottom-8'>
                                         <ListItem className='w-[240px] justify-center py-4'>
-                                            <Stack direction='row' spacing={1}>
-                                                <Link href='/register'>
-                                                    <ButtonContained label='Register' />
-                                                </Link>
-                                                <Link href='/sign-in'>
-                                                    <ButtonOutlined label='Login' />
-                                                </Link>
-                                            </Stack>
+                                            { getUserInfo === undefined ? 
+                                                <>
+                                                    <Stack direction='row' spacing={1}>
+                                                        <Link href='/register'>
+                                                            <ButtonContained label='Register' />
+                                                        </Link>
+                                                        <Link href='/sign-in'>
+                                                            <ButtonOutlined label='Login' />
+                                                        </Link>
+                                                    </Stack>
+                                                </>
+                                             : 
+                                                <>
+                                                    <Stack direction='column' spacing={2} alignItems='center' className='max-w-[200px] truncate'>
+                                                        <Link href='/register'>
+                                                            <ButtonContained label={getUserInfo} variant='text' size='large' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
+                                                        </Link>
+                                                        <Link href='/'>
+                                                            <ButtonOutlined label='Logout' onClick={handleLogOut} />
+                                                        </Link>
+                                                    </Stack>
+                                                </>
+                                            }
                                         </ListItem>
                                     </List>
                                 </Box>
@@ -111,12 +130,25 @@ export default function Appnav() {
                                     </>
                                 )
                             })}
-                            <Link href='/register'>
-                                <ButtonContained label='Register' />
-                            </Link>
-                            <Link href='/sign-in'>
-                                <ButtonOutlined label='Login' />
-                            </Link>
+                            { getUserInfo === undefined ? 
+                                <>
+                                    <Link href='/register'>
+                                        <ButtonContained label='Register' />
+                                    </Link>
+                                    <Link href='/sign-in'>
+                                        <ButtonOutlined label='Login' />
+                                    </Link>
+                                </>
+                                : 
+                                <>
+                                    <Link href='#' className='align-middle max-w-[150px] truncate'>
+                                        <ButtonContained label={getUserInfo} variant='text' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
+                                    </Link>
+                                    <Link href='/'>
+                                        <ButtonOutlined label='Logout' onClick={handleLogOut} />
+                                    </Link>
+                                </>
+                            }
                         </Stack>
                     </Grid>
                 </Grid>
