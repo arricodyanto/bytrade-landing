@@ -38,7 +38,7 @@ export default function SignIn() {
                         </Grid>
                     </Grid>
                 </Box>
-                <Typography variant='body1' className='text-center mt-4'>Dont have a account? <Link href='/register' className='underline underline-offset-4 decoration-1 hover:no-underline hover:text-primary transition'>Register</Link></Typography>
+                <Typography variant='body1' className='text-center mt-4'>Dont have an account? <Link href='/register' className='underline underline-offset-4 decoration-1 hover:no-underline hover:text-primary transition'>Register</Link></Typography>
             </ContainerPage>
         </Stack>
     </>
