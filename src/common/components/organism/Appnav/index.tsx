@@ -9,6 +9,7 @@ import ButtonContained from '../../atoms/ButtonContained';
 import ButtonOutlined from '../../atoms/ButtonOutlined';
 import { handleLogOut } from '@/common/utils/logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useRouter } from 'next/router';
 
 // Changes on Scroll
 function ChangesOnScroll(props: any) {
@@ -44,6 +45,7 @@ export default function Appnav() {
         setDrawer({ ...drawer, [anchor]: open })
     }
     const getUserInfo = Cookies.get('loginInfo')
+    const router = useRouter()
   return (
     <ChangesOnScroll>
         <AppBar sx={{ backgroundColor: trigger ? "#0F172A" : 'transparent', boxShadow: trigger ? 2 : 0, borderBottomColor: '#363636', borderBottomWidth: '1px', }} className='transition-all duration-700 ease-in-out'>
@@ -96,7 +98,7 @@ export default function Appnav() {
                                                 <>
                                                     <Stack direction='column' spacing={2} alignItems='center' className='max-w-[200px] truncate'>
                                                         <Link href='/register'>
-                                                            <ButtonContained label={getUserInfo} variant='text' size='large' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
+                                                            <ButtonContained label={getUserInfo} variant='text' size='large' className='align-middle max-w-[150px] truncate normal-case text-[16px] rounded-[2px] brightness-125' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
                                                         </Link>
                                                         <Link href='/'>
                                                             <ButtonOutlined label='Logout' onClick={handleLogOut} />
@@ -131,23 +133,15 @@ export default function Appnav() {
                                 )
                             })}
                             { getUserInfo === undefined ? 
-                                <>
-                                    <Link href='/register'>
-                                        <ButtonContained label='Register' />
-                                    </Link>
-                                    <Link href='/sign-in'>
-                                        <ButtonOutlined label='Login' />
-                                    </Link>
-                                </>
+                                <Stack direction='row' spacing={{ md: 2, lg: 4}}>
+                                    <ButtonContained label='Register' onClick={() => router.push('/register')} />
+                                    <ButtonOutlined label='Login' onClick={() => router.push('/sign-in')} />
+                                </Stack>
                                 : 
-                                <>
-                                    <Link href='#' className='align-middle max-w-[150px] truncate'>
-                                        <ButtonContained label={getUserInfo} variant='text' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
-                                    </Link>
-                                    <Link href='/'>
-                                        <ButtonOutlined label='Logout' onClick={handleLogOut} />
-                                    </Link>
-                                </>
+                                <Stack direction='row' spacing={{ md: 2, lg: 4}}>
+                                    <ButtonContained label={getUserInfo} variant='text' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} className='align-middle max-w-[150px] truncate normal-case text-[16px] rounded-[2px] brightness-125' />
+                                    <ButtonOutlined label='Logout' onClick={handleLogOut} />
+                                </Stack>
                             }
                         </Stack>
                     </Grid>
