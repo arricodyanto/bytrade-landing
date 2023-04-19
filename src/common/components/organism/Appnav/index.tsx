@@ -94,9 +94,9 @@ export default function Appnav() {
                                                 </>
                                              : 
                                                 <>
-                                                    <Stack direction='row' spacing={1}>
+                                                    <Stack direction='column' spacing={2} alignItems='center' className='max-w-[200px] truncate'>
                                                         <Link href='/register'>
-                                                            <ButtonContained label={getUserInfo} variant='text' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
+                                                            <ButtonContained label={getUserInfo} variant='text' size='large' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
                                                         </Link>
                                                         <Link href='/'>
                                                             <ButtonOutlined label='Logout' onClick={handleLogOut} />
@@ -141,7 +141,7 @@ export default function Appnav() {
                                 </>
                                 : 
                                 <>
-                                    <Link href='#' className='align-middle'>
+                                    <Link href='#' className='align-middle max-w-[150px] truncate'>
                                         <ButtonContained label={getUserInfo} variant='text' startIcon={<AccountCircleIcon fontSize='small' color='primary' />} />
                                     </Link>
                                     <Link href='/'>

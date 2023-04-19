@@ -12,8 +12,10 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import PlaceIcon from '@mui/icons-material/Place';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
+import Cookies from 'js-cookie'
 
 export default function Footer() {
+    const getUserInfo = Cookies.get('loginInfo')
   return (
     <>
         <Divider light className='border-gray-600 w-screen absolute left-0' />
@@ -23,9 +25,15 @@ export default function Footer() {
                     <Typography variant='h5' className='font-bold mb-2'>
                         Start earning today
                     </Typography>
-                    <Link href='/register'>
-                        <ButtonContained label='Register Now' size='large' fullWidth className='py-3 capitalize text-[16px] rounded-[4px] font-bold' />
-                    </Link>
+                    { getUserInfo === undefined ? 
+                        <Link href='/register'>
+                            <ButtonContained label='Register Now' size='large' fullWidth className='py-3 capitalize text-[16px] rounded-[4px] font-bold' />
+                        </Link>
+                        : 
+                        <Link href='/#top-coins'>
+                            <ButtonContained label='Trades Now' size='large' fullWidth className='py-3 capitalize text-[16px] rounded-[4px] font-bold' />
+                        </Link>
+                    }
                 </Grid>
                 <Grid item xs={12} md={6} lg={3} className='xs:text-start lg:text-end'>
                     <Typography variant='h5' className='font-bold mb-2'>
