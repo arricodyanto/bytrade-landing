@@ -11,7 +11,7 @@ export default function LoginForm() {
         setUsername(e.target.value)
     }
   return (
-    <Box component='form' action='/auth' method='post'>
+    <Box component='form' onSubmit={handleSubmit}>
         <TextfieldLabel label='User Name' name='username' placeholder='User Name' value={username} onChange={handleChange} />
         <Box className='mt-8'>
             <ButtonContained type='submit' label='Login' fullWidth size='large' />
