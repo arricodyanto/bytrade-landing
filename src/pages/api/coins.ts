@@ -17,7 +17,7 @@ export default async function handler(
             chips: crypto.symbol,
             name: crypto.name,
             value: crypto.quote.USD.price,
-            precentage: crypto.quote.USD.percent_change_1h
+            precentage: crypto.quote.USD.percent_change_24h
         }
     })
     res.status(200).json(formattedData)
