@@ -648,6 +648,14 @@ video {
   height: 100vh !important;
 }
 
+.w-1\/2 {
+  width: 50% !important;
+}
+
+.w-3\/4 {
+  width: 75% !important;
+}
+
 .w-\[10px\] {
   width: 10px !important;
 }
@@ -728,6 +736,10 @@ video {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
+}
+
+.rounded {
+  border-radius: 0.25rem !important;
 }
 
 .rounded-\[10px\] {
@@ -1086,6 +1098,10 @@ body {
     width: 75% !important;
   }
 
+  .xs\:w-\[160px\] {
+    width: 160px !important;
+  }
+
   .xs\:w-full {
     width: 100% !important;
   }
@@ -1130,6 +1146,10 @@ body {
 
   .md\:h-\[calc\(100vh\/2\)\] {
     height: calc(100vh / 2) !important;
+  }
+
+  .md\:w-\[120px\] {
+    width: 120px !important;
   }
 
   .md\:w-full {
