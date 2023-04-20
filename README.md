@@ -2,9 +2,10 @@
 
 Welcome to the ByTrade Landing Page repository! This is a website created to showcase the features and benefits of ByTrade, a trading platform for cryptocurrency and forex.
 
+
 ## Getting Started
 
-There is no need for installation as this is a website hosted online. You can access it by visiting https://arricodyanto.github.io/bytrade-landing/.
+There is no need for installation as this is a website hosted online. You can access it by visiting https://bytrade.vercel.app/.
 
 If you want to run this project on your local system, please clone or fork this repository in your device. Then you can run command
 
@@ -35,10 +36,9 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Telegram Notifier
 
-When a new user registered, the api will send a notification to a Telegram Group Chat. Please join to https://t.me/bytradeNotifier to see the notification!
+When a new user registered, the api will send a notification to a Telegram Group Chat. Please join to https://t.me/bytradeNotifier to see the notifications' alert.
 
 Hope you'll enjoy it!
