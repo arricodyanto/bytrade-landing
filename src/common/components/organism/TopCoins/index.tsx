@@ -7,12 +7,16 @@ import { TCoinItemProps } from '@/common/types/coin'
 export default function TopCoins() {
   const [cryptoData, setCryptoData] = React.useState<TCoinItemProps[]>([])
   React.useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/api/coins');
+      const data = await response.json()
+      setCryptoData(data)
+    }
+    fetchData()
     const interval = setInterval(() => {
-      fetch("/api/coins")
-        .then((response) => response.json())
-        .then((data) => setCryptoData(data));
+      fetchData();
     }, 60000);
-    return () => clearInterval(interval);
+    return () => clearInterval(interval)
   }, [])
   return (
     <Box component='section' marginBottom={10}>
