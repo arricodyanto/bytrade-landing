@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import CoinItem from '../../molecules/CoinItem'
 import { TCoinItemProps } from '@/common/types/coin'
+import CoinItemSkeleton from '../../molecules/CoinItemSkeleton'
 
 export default function TopCoins() {
   const [cryptoData, setCryptoData] = React.useState<TCoinItemProps[]>([])
@@ -28,15 +29,23 @@ export default function TopCoins() {
           </Link>
         </Stack>
         <Grid container spacing={1}>
-            { cryptoData.map(data => {
+        { cryptoData.length === 0 ? 
+            Array.from({ length: 4 }).map((_, i) => (
+              <Grid item xs={12} md={3} marginTop={2} key={i}>
+                  <CoinItemSkeleton />
+              </Grid>
+            ))
+          :
+            cryptoData.map(data => {
               return(
                 <>
                   <Grid item xs={12} md={3} marginTop={2}>
-                      <CoinItem name={data.name} chips={data.chips} value={data.value} precentage={data.precentage} />
+                        <CoinItem name={data.name} chips={data.chips} value={data.value} precentage={data.precentage} />
                   </Grid>
                 </>
               )
-            })}
+            })
+        }
         </Grid>
     </Box>
   )
