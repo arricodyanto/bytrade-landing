@@ -1,9 +1,19 @@
-import { Box, Button, Grid, Stack, Typography } from '@mui/material'
-import Link from 'next/link'
+import { Box, Grid, Stack, Typography } from '@mui/material'
 import React from 'react'
+import Link from 'next/link'
 import CoinItem from '../../molecules/CoinItem'
+import { TCoinItemProps } from '@/common/types/coin'
 
 export default function TopCoins() {
+  const [cryptoData, setCryptoData] = React.useState<TCoinItemProps[]>([])
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      fetch("/api/coins")
+        .then((response) => response.json())
+        .then((data) => setCryptoData(data));
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [])
   return (
     <Box component='section' marginBottom={10}>
         <Box component='a' id='top-coins' className='relative -top-[120px]'></Box>
@@ -14,21 +24,15 @@ export default function TopCoins() {
           </Link>
         </Stack>
         <Grid container spacing={1}>
-            <Grid item xs={12} md={4} lg={2.4} marginTop={2}>
-                <CoinItem name='Binance' chips='BNB' value={324.5} precentage={1.79} />
-            </Grid>
-            <Grid item xs={12} md={4} lg={2.4} marginTop={2}>
-                <CoinItem name='Bitcoin' chips='BTC' value={30115} precentage={1.75} />
-            </Grid>
-            <Grid item xs={12} md={4} lg={2.4} marginTop={2}>
-                <CoinItem name='Etherium' chips='ETH' value={2010} precentage={5.43} />
-            </Grid>
-            <Grid item xs={12} md={4} lg={2.4} marginTop={2}>
-                <CoinItem name='Balancer' chips='BAL' value={7.12} precentage={-0.91} />
-            </Grid>
-            <Grid item xs={12} md={4} lg={2.4} marginTop={2}>
-                <CoinItem name='Cardano' chips='ADA' value={0.4393} precentage={-2.64} />
-            </Grid>
+            { cryptoData.map(data => {
+              return(
+                <>
+                  <Grid item xs={12} md={3} marginTop={2}>
+                      <CoinItem name={data.name} chips={data.chips} value={data.value} precentage={data.precentage} />
+                  </Grid>
+                </>
+              )
+            })}
         </Grid>
     </Box>
   )

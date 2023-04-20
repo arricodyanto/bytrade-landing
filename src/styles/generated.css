@@ -669,8 +669,12 @@ video {
   width: 100vw !important;
 }
 
-.max-w-\[55\%\] {
-  max-width: 55% !important;
+.max-w-\[150px\] {
+  max-width: 150px !important;
+}
+
+.max-w-\[200px\] {
+  max-width: 200px !important;
 }
 
 .translate-y-1 {
@@ -834,6 +838,10 @@ video {
   text-align: center !important;
 }
 
+.align-middle {
+  vertical-align: middle !important;
+}
+
 .text-2xl {
   font-size: 1.5rem !important;
   line-height: 2rem !important;
@@ -894,6 +902,10 @@ video {
   text-transform: capitalize !important;
 }
 
+.normal-case {
+  text-transform: none !important;
+}
+
 .text-\[\#94a3b8\] {
   --tw-text-opacity: 1 !important;
   color: rgb(148 163 184 / var(--tw-text-opacity)) !important;
@@ -947,6 +959,11 @@ video {
 
 .blur {
   --tw-blur: blur(8px) !important;
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+}
+
+.brightness-125 {
+  --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
 
