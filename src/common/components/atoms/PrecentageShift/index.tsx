@@ -12,12 +12,12 @@ export default function PrecentageShift(props:TPrecentageShiftProps) {
       { value >= 0 ?
           <>
             <PlayArrowIcon color='success' className='text-[27px] -rotate-90' />
-            <Typography variant='body1' className='text-success font-bold'>{value}%</Typography>
+            <Typography variant='body1' className='text-success font-bold'>{value.toFixed(4)}%</Typography>
           </>
         :
           <>
             <PlayArrowIcon color='error' className='text-[27px] rotate-90' />
-            <Typography variant='body1' className='text-error font-bold'>{value}%</Typography>
+            <Typography variant='body1' className='text-error font-bold'>{value.toFixed(4)}%</Typography>
           </>
       }
     </Stack>

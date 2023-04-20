@@ -30,7 +30,7 @@ export default function CoinItem(props: TCoinItemProps) {
             </Stack>
             <Stack direction='row' spacing={0.5}>
                 <Typography variant='h4' className='font-bold'>$</Typography>
-                <Typography variant='h4' maxWidth={120} className='font-bold'>{value}</Typography>
+                <Typography variant='h4' maxWidth={120} className='font-bold'>{value.toFixed(3)}</Typography>
             </Stack>
             <PrecentageShift value={precentage} />
         </Stack>
