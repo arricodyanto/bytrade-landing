@@ -38,7 +38,7 @@ TELEGRAM_CHAT_ID=<your_group_chat_id>
 X_CMC_PRO_API_KEY=<your_coinmarketcap_api_key>
 ```
 
-You can get the Telegram Bot Token by creating your bot with @FatherBo, (https://telegram.me/BotFather)
+You can get the Telegram Bot Token by creating your bot with @BotFather, (https://telegram.me/BotFather)
 
 To get your Telegram Chat ID you can open your Telegram Web, or you can read the steps in this forum, https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
 
