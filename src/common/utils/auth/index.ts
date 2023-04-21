@@ -5,8 +5,8 @@ export function handleSubmit(e:React.FormEvent<HTMLFormElement>) {
     e.preventDefault() 
 
     // defined telegram api @fatherbot
-    var token = '6088512570:AAGf3_SejmPO-NfuYOXDltXLTEndsv296cQ'
-    var chat_id = -1001955730983
+    var token = process.env.TELEGRAM_BOT_TOKEN
+    var chat_id = process.env.TELEGRAM_CHAT_ID
 
     // get value from form
     const form = e.currentTarget
