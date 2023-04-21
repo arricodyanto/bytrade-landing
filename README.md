@@ -40,7 +40,8 @@ Before start the server, you must create a file named ".env.local" and save this
 
 You can get the Telegram Bot Token by creating your bot with @BotFather, (https://telegram.me/BotFather)
 
-To get your Telegram Chat ID you can open your Telegram Web, or you can read the steps in this forum, https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
+To get your Telegram Chat ID you can open your Telegram Web, or you can read the steps in this forum, 
+https://stackoverflow.com/questions/32423837/
 
 You can create your account in Coinmarketcap.com to get the market crypto current price at, https://coinmarketcap.com/api/. There's a Basic Plan you could get, and it's totally Free!
 
