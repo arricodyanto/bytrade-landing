@@ -8,7 +8,7 @@ export default async function handler(
     // lakukan fetch data dari API CoinMarketCap
     const response = await fetch(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=4&convert=USD`, {
       headers: {
-        'X-CMC_PRO_API_KEY': 'dcdcc479-d414-4a51-8bbb-834924b1c2c5'
+        'X-CMC_PRO_API_KEY': process.env.X_CMC_PRO_API_KEY || ''
       }
     })
     const data = await response.json()
