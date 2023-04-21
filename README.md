@@ -25,17 +25,17 @@ Go to the project directory
 Install dependencies
 
 ```bash
-yarn install
-# or
-npm install
+  yarn install
+  # or
+  npm install
 ```
 
 Before start the server, you must create a file named ".env.local" and save this lines to the file
 
 ```bash
-TELEGRAM_BOT_TOKEN=<your_bot_telegram_token>
-TELEGRAM_CHAT_ID=<your_group_chat_id>
-X_CMC_PRO_API_KEY=<your_coinmarketcap_api_key>
+  TELEGRAM_BOT_TOKEN=<your_bot_telegram_token>
+  TELEGRAM_CHAT_ID=<your_group_chat_id>
+  X_CMC_PRO_API_KEY=<your_coinmarketcap_api_key>
 ```
 
 You can get the Telegram Bot Token by creating your bot with @BotFather, (https://telegram.me/BotFather)
@@ -48,9 +48,9 @@ You can create your account in Coinmarketcap.com to get the market crypto curren
 Once finished, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+  npm run dev
+  # or
+  yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
